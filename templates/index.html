@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+
+     <!-- Latest compiled and minified CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+     
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Transfer</title>
+</head>
+
+
+<body class="bg">
+<style>
+    .center {
+margin-left: auto;
+margin-right: auto;
+}
+
+.bg {
+/* The image used */
+background-image: url("static/bg2.jpg");
+
+/* Full height */
+height: 100%;
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+#steps{
+    border: 2px solid black;
+    display: inline-block;
+
+}
+table{
+border: 3px solid black;
+}
+tr.noBorder ,td {
+border: 0;
+}
+
+.image {
+border: 1px solid black;
+border-radius: 4px;
+padding: 5px;
+width: 150px;
+          }
+</style>
+    <div class="jumbotron text-center bg">
+    <h1 class="display-3">Style Transfer</h1>
+    <div id="steps">
+    <h4> <b> How to use? </b></h4>
+    <h5> <b> Step1:</b> Select content image, i.e. image whose style you want to change. </h5>
+    <h5> <b> Step2:</b> Select style image, i.e. image whose style you want to transfer. </h5>
+    <h5> <b> Step3:</b> Hit the Style Transfer button and wait for image to be processed.</h5>
+</div>
+    <p><span id="txt"></span></p>
+</div>
+    <form action='/style' method="post" id="myForm" class="justify-content-center">
+        
+        <table class="center">
+            <tr class="noBorder">
+                <td align="center" class="noBorder">
+        
+                    <label for="img1">Select Content image:</label>
+                    <div class="form-group">
+                        <input type="file" id="img1" name="img1" class= "form-control-file" accept="image/*" onchange="loadContent(event)">
+                    </div>
+                </td>
+                <td align="center">
+                    <label for="img2">Select Style image:</label>
+                    <div class="form-group">
+                        <input type="file" id="img2" name="img2" class= "form-control-file" accept="image/*" onchange="loadStyle(event)">
+                    </div>
+            </td>
+            </tr>
+
+            <tr class="noBorder">
+                <td><img src="" alt="" id="content_image" class="image"></td>
+                <td><img src="" alt="" id="style_image" class="image"></td>
+            </tr>
+       <tr>
+            <td align="center" colspan="2"><button type="submit" id="submit">Style Transfer</button></td>
+       </tr>
+       <tr>
+           <td align="center" colspan="2"><h5>Output will be displayed here:</h5><br><img style="display: none;" src="" class="image" id='result'></td>
+       </tr>
+        </table>
+        
+        
+      </form>
+      
+<script src="static/main.js"></script>
+
+   
+</body>
+</html>

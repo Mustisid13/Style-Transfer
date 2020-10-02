@@ -1,0 +1,5 @@
+flask
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==1.6.0+cu92
+torchvision==0.7.0+cu92
+Pillow
